@@ -47,16 +47,30 @@ def d_temperature(d_slope):
 def turbulence(inter):
     return inter**0.5
 
+def spec_type(spectral_type, spectral_temperature, temperature):
+    for i in range(len(spectral_temperature)):
+        if temperature > spectral_temperature[i]:
+            return spectral_type[spectral_temperature[i]]
+
 # Group 5 datasets
-w = [4.42, 0.58, 1.71]
+w = [20.17, 2.71, 7.79]
 dw = [0.1, 0.1, 0.1]
 lambda_nm = [1083, 378, 1565]
 A = [4, 27, 56]
 v2 = []
 dv2 = []
 m_bar_1 = []
-
-spec_type = "NOT DEFINED"
+spectral_type = {
+    30000 : "O",
+    10000 : "B",
+    7500 : "A",
+    6000 : "F",
+    5000 : "G",
+    3500 : "K",
+    1000 : "M",
+    0 : "NOT DEFINED"
+    }
+spectral_temperature = [30000, 10000, 7500, 6000, 5000, 3500, 1000, 0]
 
 calculate_velocity(v2, dv2, w, dw)
 calculate_m_bar(m_bar_1, A)
@@ -70,9 +84,9 @@ print(temperature(slope))
 print("d Temperature=")
 print(d_temperature(d_slope))
 print("Spectral Type=")
-print(spec_type)
+print(spec_type(spectral_type, spectral_temperature, temperature(slope)))
 
-w = [0.94, 3.56]
+w = [2.17, 7.29]
 dw = [0.1, 0.1]
 lambda_nm = [378, 1565]
 A = [27, 56]
