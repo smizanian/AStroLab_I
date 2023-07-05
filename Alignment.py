@@ -68,7 +68,7 @@ for j in range (len(images[0]) - max(y_shift)):
 
 hdu = fits.PrimaryHDU(merge_image)
 hdulist = fits.HDUList([hdu])
-hdulist.writeto('master.fits')            
+hdulist.writeto('Star_1s_ISO100_Mizanian_Hajian.fits')            
 
 
 
