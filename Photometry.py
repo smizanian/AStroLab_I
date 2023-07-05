@@ -32,7 +32,7 @@ def differential_photometry(frame, posx, posy, exptime):
     return instrumental_mag, SNR[np.argmax(SNR)], [sigma, SNR], circle[np.argmax(SNR)]
 
 image_data = []
-image_file = get_pkg_data_filename(r'master.fits')
+image_file = get_pkg_data_filename(r'Star_1s_ISO100_Mizanian_Hajian.fits')
 fits.info(image_file)
 image_data.append(fits.getdata(image_file))
 master = np.array(image_data[0])
